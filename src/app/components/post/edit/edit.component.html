@@ -1,0 +1,47 @@
+<div class="mb-4">
+    <h4>Edit Post</h4>
+    <app-loading *ngIf="isLoading"></app-loading>
+    <app-error [message]="errorMessage" *ngIf="errorMessage"></app-error>
+    <form *ngIf="!isLoading" (ngSubmit)="onSubmit()" #postEditForm="ngForm">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input ngModel #titleInp="ngModel" name="title" required type="text" class="form-control" id="title"
+                aria-describedby="titleHelp" [value]="post?.title">
+            <div *ngIf="titleInp.invalid && titleInp.touched" id="titleHelp" class="form-text help">Please add a
+                meaningful
+                title.</div>
+        </div>
+        <div class="mb-3">
+            <label for="cover_img" class="form-label">Cover Image</label>
+            <input ngModel #converInp="ngModel" name="cover_img" required url type="url" class="form-control" id="cover"
+                aria-describedby="coverHelp" [value]="post?.cover_img">
+            <div *ngIf="converInp.invalid && converInp.touched" id="coverHelp" class="form-text help">Please add cover
+                image
+                URL.
+            </div>
+            <div id="coverHelp" class="form-text help">
+                <a [href]="post?.cover_img" target="_blank">Click here to view current cover image</a>
+            </div>
+            <div class="form-text ">Get Images from
+                <a href="https://unsplash.com/" class="ms-2" target="_blank">Unsplash</a>
+                <a class="ms-2" href="https://www.pexels.com/" target="_blank">Pexels</a>
+                and paste their URL
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="content">Content</label>
+            <!-- <textarea ngModel #contentInp="ngModel" name="content" required class="form-control" placeholder="Content"
+                id="content" rows="5" cols="5">{{post?.content}}</textarea> -->
+            <quill-editor [styles]="{height: '200px'}" ngModel #contentInp="ngModel" name="content" required class="">
+            </quill-editor>
+            <div *ngIf="contentInp.invalid && contentInp.touched" id="coverHelp" class="form-text help">Please add
+                content.
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button [disabled]="postEditForm.invalid || !postEditForm.dirty" type="submit"
+                class="btn btn-primary btn-block">Submit</button>
+        </div>
+
+    </form>
+</div>

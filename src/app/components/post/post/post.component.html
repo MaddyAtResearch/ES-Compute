@@ -1,0 +1,12 @@
+<div class="card mb-4">
+    <a routerLink="post/{{post.id}}" title="{{post.title}}">
+        <img [src]="post.cover_img" class="card-img-top img-fluid" [alt]="post.title" style="max-height: 20rem;">
+    </a>
+    <div class="card-body">
+        <h2 class="card-title h2">
+            <a routerLink="post/{{post.id}}">{{post.title}}</a>
+        </h2>
+        <p class="card-text">Author: {{post.author.username}}</p>
+        <p class="card-text">Published: {{post.created|date}}</p>
+    </div>
+</div>

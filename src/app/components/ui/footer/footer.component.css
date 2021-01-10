@@ -1,0 +1,15 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+
+.footer {
+  /* position: absolute; */
+  bottom: 0;
+  width: 100%;
+  line-height: 40px; /* Vertically center the text there */
+  background-color: #6f42c1;
+}
+
+#footer-text{
+    color: white;
+  
+}

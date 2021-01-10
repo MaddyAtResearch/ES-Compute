@@ -1,0 +1,16 @@
+<app-error *ngIf="errorMessage && !isSubmitting" [message]="errorMessage"></app-error>
+<app-loading *ngIf="isSubmitting" [message]="errorMessage"></app-loading>
+<form (ngSubmit)="onLogin()" #loginForm="ngForm" *ngIf="!isSubmitting">
+    <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input required ngModel name="username" type="text" class="form-control" id="username"
+            aria-describedby="usernameHelp">
+        <!-- <div id="usernameHelp" class="form-text">This field is required</div> -->
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input required ngModel name="password" type="password" class="form-control" id="password" autocomplete="on">
+    </div>
+
+    <button [disabled]="loginForm.invalid" type="submit" class="btn btn-primary">Login</button>
+</form>

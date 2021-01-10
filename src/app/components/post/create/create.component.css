@@ -1,0 +1,13 @@
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+    border-color: red;
+}
+
+.help{
+    color: red;
+}
+
+.ql-container {
+    min-height: 167px;
+    background-color: lawngreen;
+    color: lightcoral;
+}

@@ -1,0 +1,20 @@
+<div class="card mb-4" *ngIf="!loading && !errorMessage">
+
+    <img [src]="post?.cover_img" class="card-img-top img-fluid" [alt]="post?.title" style="max-height: 20rem;">
+
+    <div class="card-body">
+        <h4 class="card-title">
+            {{post?.title}}
+        </h4>
+        <p class="card-text">
+            <a *ngIf="isOwner" [routerLink]="['edit']" class="btn btn-sm btn-primary ">Edit</a>
+            <button *ngIf="isOwner" (click)="onDeletePost()" class="btn btn-sm btn-danger ms-2">Delete</button>
+        </p>
+        <p class="card-text">Author: {{post?.author.username}}</p>
+        <p class="card-text">Published: {{post?.created|date:'fullDate'}}</p>
+        <hr>
+        <p class="card-text content" [innerHTML]="post?.content"></p>
+    </div>
+</div>
+<app-loading *ngIf="loading"></app-loading>
+<app-error *ngIf="errorMessage" [message]="errorMessage"></app-error>

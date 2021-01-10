@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import '~quill/dist/quill.core.css';
+ @import '~quill/dist/quill.bubble.css';
+ @import '~quill/dist/quill.snow.css';
+.primary, .btn-primary, .btn-primary:disabled{
+    background-color: #6f42c1;
+}
+
+
+p{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: large;
+
+}
+
+li a{
+     font-family: 'Ubuntu', sans-serif;
+    font-size: large;
+}

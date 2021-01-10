@@ -1,0 +1,9 @@
+<div *ngIf="!loading">
+    <div class="mb-3">
+        <input [(ngModel)]="filterTerm" type="text" class="form-control mb-4" (keyup)="searchPost($event)"
+            placeholder="Search..">
+    </div>
+    <app-post *ngFor="let post of filteredPosts" [post]="post"></app-post>
+</div>
+<app-loading *ngIf="loading"></app-loading>
+<app-error *ngIf="errorMessage" [message]="errorMessage"></app-error>
